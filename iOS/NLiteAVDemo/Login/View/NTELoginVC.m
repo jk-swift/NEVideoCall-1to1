@@ -274,6 +274,7 @@
         _protocolView.textAlignment = NSTextAlignmentCenter;
         _protocolView.editable = NO;
         _protocolView.scrollEnabled = NO;
+        _protocolView.backgroundColor = [UIColor whiteColor];
     }
     return _protocolView;
 }

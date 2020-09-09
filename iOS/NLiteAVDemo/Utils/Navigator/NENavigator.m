@@ -36,6 +36,7 @@
     }
     NTELoginVC *loginVC = [[NTELoginVC alloc] initWithOptions:options];
     UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    loginNav.navigationBar.barTintColor = [UIColor whiteColor];
     loginNav.navigationBar.translucent = NO;
     loginNav.modalPresentationStyle = UIModalPresentationFullScreen;
     __weak typeof(self) weakSelf = self;

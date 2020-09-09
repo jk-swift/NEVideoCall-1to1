@@ -30,6 +30,7 @@ static NSString * const token = @"";//请输入NERtcSDK 频道Token 如果没有
 
 /// 单位:秒,IM服务器邀请2分钟后无响应为超时,最大值不超过2分钟。
 @property(assign,nonatomic)NSInteger timeOutSeconds;
+@property(assign,nonatomic)BOOL isForeground;
 
 /// 单例
 + (instancetype)shared;

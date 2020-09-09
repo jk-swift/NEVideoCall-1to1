@@ -163,11 +163,6 @@ static NSString *cellID = @"menuCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         if (![NEAccount shared].hasLogin) {
-//            NELoginOptions *option = [[NELoginOptions alloc] init];
-//            option.successBlock = ^{
-//                NERtcContactsViewController *contact = [[NERtcContactsViewController alloc] init];
-//                [self.navigationController pushViewController:contact animated:YES];
-//            };
             [[NENavigator shared] loginWithOptions:nil];
         }else {
             NERtcContactsViewController *contact = [[NERtcContactsViewController alloc] init];
@@ -177,7 +172,6 @@ static NSString *cellID = @"menuCellID";
 }
 
 #pragma mark - property
-
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];

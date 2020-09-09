@@ -68,6 +68,7 @@
         
         UILabel *subLabel = [UILabel new];
         subLabel.font = [UIFont systemFontOfSize:38];
+        subLabel.textColor = [UIColor darkGrayColor];
         [subView addSubview:subLabel];
         subLabel.frame = subView.bounds;
         subLabel.textAlignment = NSTextAlignmentCenter;
