@@ -163,12 +163,12 @@ static NSString *cellID = @"menuCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         if (![NEAccount shared].hasLogin) {
-            NELoginOptions *option = [[NELoginOptions alloc] init];
-            option.successBlock = ^{
-                NERtcContactsViewController *contact = [[NERtcContactsViewController alloc] init];
-                [self.navigationController pushViewController:contact animated:YES];
-            };
-            [[NENavigator shared] loginWithOptions:option];
+//            NELoginOptions *option = [[NELoginOptions alloc] init];
+//            option.successBlock = ^{
+//                NERtcContactsViewController *contact = [[NERtcContactsViewController alloc] init];
+//                [self.navigationController pushViewController:contact animated:YES];
+//            };
+            [[NENavigator shared] loginWithOptions:nil];
         }else {
             NERtcContactsViewController *contact = [[NERtcContactsViewController alloc] init];
             [self.navigationController pushViewController:contact animated:YES];

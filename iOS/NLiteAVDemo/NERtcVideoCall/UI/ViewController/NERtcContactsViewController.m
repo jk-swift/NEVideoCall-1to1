@@ -45,7 +45,7 @@ static NSString *fileName = @"searchHistory";
     [self.searchBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
         make.right.mas_equalTo(-20);
-        make.top.mas_equalTo(statusHeight + 44 + 10);
+        make.top.mas_equalTo(statusHeight + 44 + 8);
         make.height.mas_equalTo(40);
     }];
     [self.searchBarView addSubview:self.textField];
@@ -163,14 +163,16 @@ static NSString *fileName = @"searchHistory";
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] init];
-        _textField.backgroundColor = [UIColor colorWithRed:57/255.0 green:57/255.0 blue:69/255.0 alpha:1.0];
+        _textField.backgroundColor = [UIColor clearColor];
         _textField.delegate = self;
         _textField.textColor = [UIColor whiteColor];
-        _textField.placeholder = @"输入手机号搜索已注册用户";
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"输入手机号搜索已注册用户" attributes:@{NSForegroundColorAttributeName:[UIColor grayColor],NSFontAttributeName:_textField.font}];
+        _textField.attributedPlaceholder = string;
         _textField.layer.cornerRadius = 8;
+        
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.returnKeyType = UIReturnKeySearch;
-        _textField.keyboardType = UIKeyboardTypePhonePad;
+        _textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
     }
     return _textField;
 }
