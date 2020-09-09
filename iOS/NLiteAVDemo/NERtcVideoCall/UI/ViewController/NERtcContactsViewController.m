@@ -171,7 +171,6 @@ static NSString *fileName = @"searchHistory";
         _textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _textField.returnKeyType = UIReturnKeySearch;
         _textField.keyboardType = UIKeyboardTypePhonePad;
-        [_textField becomeFirstResponder];
     }
     return _textField;
 }
