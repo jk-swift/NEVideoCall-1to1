@@ -713,7 +713,7 @@
 				CODE_SIGN_ENTITLEMENTS = NLiteAVDemo/NLiteAVDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 569GNZ5392;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/NLiteAVDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = NLiteAVDemo/Info.plist;
@@ -737,7 +737,7 @@
 				CODE_SIGN_ENTITLEMENTS = NLiteAVDemo/NLiteAVDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 569GNZ5392;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/NLiteAVDemo/PrefixHeader.pch";
 				INFOPLIST_FILE = NLiteAVDemo/Info.plist;
