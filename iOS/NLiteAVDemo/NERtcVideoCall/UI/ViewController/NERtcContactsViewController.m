@@ -45,7 +45,7 @@ static NSString *fileName = @"searchHistory";
     [self.searchBarView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
         make.right.mas_equalTo(-20);
-        make.top.mas_equalTo(statusHeight + 44);
+        make.top.mas_equalTo(statusHeight + 44 + 10);
         make.height.mas_equalTo(40);
     }];
     [self.searchBarView addSubview:self.textField];

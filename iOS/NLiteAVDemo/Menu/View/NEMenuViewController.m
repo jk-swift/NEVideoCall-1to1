@@ -49,7 +49,7 @@ static NSString *cellID = @"menuCellID";
     CGFloat statusHeight = [[UIApplication sharedApplication] statusBarFrame].size.height;
     [customView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.mas_equalTo(0);
-        make.height.mas_equalTo(statusHeight + 44);
+        make.height.mas_equalTo(statusHeight + 80);
     }];
     
     [self.view addSubview:self.tableView];
@@ -196,5 +196,8 @@ static NSString *cellID = @"menuCellID";
         _bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu_bg"]];
     }
     return _bgImageView;
+}
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
 @end
