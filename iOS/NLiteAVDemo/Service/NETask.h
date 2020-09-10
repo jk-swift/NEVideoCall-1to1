@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 请求闭包
 typedef void(^NERequestHandler)(NSDictionary * _Nullable data, NSError * _Nullable error);
-static NSString *baseURL = @"http://yiyong.netease.im";
+static NSString *baseURL = @"https://yiyong.netease.im";
 
 @interface NETask : NSObject<NEServiceTask>
 + (instancetype)task;
