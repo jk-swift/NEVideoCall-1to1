@@ -7,7 +7,6 @@
 //
 
 #import "NERtcVideoCall.h"
-#import <UserNotifications/UserNotifications.h>
 
 @interface NERtcVideoCall()
 @property(strong,nonatomic)NERtcVideoCallModel *currentModel;
@@ -295,42 +294,8 @@ static NERtcVideoCall *instance;
             [delegate onInvitedByUser:remoteUser];
         }
     }
-    
 }
-- (void)localNotification:(NIMSignalingInviteNotifyInfo *)info {
-    NSString *title = @"网易云信";
-    NSArray *components = [info.customInfo componentsSeparatedByString:@","];
-    NSString *mobile = @"";
-    if (components.count) {
-        mobile = components.firstObject;
-    }
-    NSString *body = [NSString stringWithFormat:@"%@邀请你视频通话",mobile];
-    
-    if (@available(iOS 10.0, *)) {
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
-        content.badge = [NSNumber numberWithInt:1];
-        content.title = title;
-        content.body = body;
-        content.sound = [UNNotificationSound defaultSound];
-        UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:NO];
-        NSInteger random = arc4random()%100;
-        UNNotificationRequest *notificationRequest = [UNNotificationRequest requestWithIdentifier:[NSString stringWithFormat:@"localRequest%zd",random] content:content trigger:trigger];
-        [center addNotificationRequest:notificationRequest withCompletionHandler:^(NSError * _Nullable error) {
-            NSLog(@"本地通知 error:%@",error);
-        }];
-    } else {
-        UILocalNotification *notification = [[UILocalNotification alloc] init];
-        NSDate * now = [[NSDate alloc] init];
-        notification.fireDate = now;
-        notification.timeZone=[NSTimeZone defaultTimeZone];
-        notification.repeatInterval = kCFCalendarUnitSecond;
-        notification.alertTitle = title;
-        notification.alertBody = body;
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
-    }
-}
+
 #pragma mark - NERtcVideoCallDelegate
 /// 在线通知
 - (void)nimSignalingOnlineNotifyEventType:(NIMSignalingEventType)eventType
@@ -348,10 +313,6 @@ static NERtcVideoCall *instance;
         case NIMSignalingEventTypeInvite:
         {
             NIMSignalingInviteNotifyInfo *info = (NIMSignalingInviteNotifyInfo *)notifyResponse;
-            if (!self.isForeground) {
-                ///发送本地通知
-                [self localNotification:info];
-            }
             [self _handleInviteInfo:info];
         }
             break;

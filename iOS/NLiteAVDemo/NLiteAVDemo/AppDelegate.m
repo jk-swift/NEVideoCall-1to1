@@ -68,25 +68,20 @@
 
 // 4.接收通知
 // iOS 10.0 在前台收到通知
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
-}
+//- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+//}
 
 //在后收到通知
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    completionHandler();
 }
 //低于iOS 10.0
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    [NERtcVideoCall shared].isForeground = NO;
-}
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    [NERtcVideoCall shared].isForeground = YES;
-}
+
 @end

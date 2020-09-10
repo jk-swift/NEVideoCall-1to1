@@ -14,5 +14,4 @@ static NSString * const Appkey = @"<#请输入网易云信控制台获取的App 
 static NSString * const APNSCerName = @"<#请输入远程推送证书名字#>";
 static NSString * const VoIPCerName = @"<#请输入您的VoIP推送证书#>";
 
-
 #endif /* AppKey_h */

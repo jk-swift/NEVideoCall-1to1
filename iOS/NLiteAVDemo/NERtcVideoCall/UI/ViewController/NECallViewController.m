@@ -42,7 +42,7 @@
 #pragma mark - SDK
 - (void)setupSDK {
     [[NERtcVideoCall shared] addDelegate:self];
-    [NERtcVideoCall shared].timeOutSeconds = 0.5 * 60;
+    [NERtcVideoCall shared].timeOutSeconds = 1.0 * 60;
     if (self.status == NECallStatusCall) {
         [[NERtcVideoCall shared] call:self.remoteUser completion:^(NSError * _Nullable error) {
             [[NERtcVideoCall shared] setupLocalView:self.bigVideoView.videoView];
